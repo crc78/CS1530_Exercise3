@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = "crc78.asdf"
+repositories {
+  mavenCentral()
+}
+dependencies {
+  testCompile 'junit:junit:4.12'
+}
+run {
+  try{
+    systemProperties System.getProperties()
+    args System.getProperty("args").split(" ")
+  }
+  catch(Exception e){
+
+  }
+}
+
+task sequencehelp << {
+  println "Integer Sequence Project"
+  println "The program takes two arguments. The first is either 'lazy' or 'triangle' to specify which sequence you would like to calculate. The triangle sequence is the additive version of a factorial. The lazy sequence is how many pieces you can get with x amount of cuts. The last argument is a 32 bit positive integer to calculate the sequence of that number. The program will exit if you input incorrect arguments."
+}
